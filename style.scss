@@ -34,14 +34,15 @@ body {
 }
 
 $gap-size: 0.5rem;
-$padding-size: 1.5rem;
-
+$padding-size: 0.5rem;
+$font-size: 0.8rem;
+$transition-time: 0.25s;
 .card {
   width: 100%;
   min-height: 100vh;
   // Where to snap to
   scroll-snap-align: start;
-  font-size: 0.8rem;
+  font-size: $font-size;
 
   &.introduction {
     border: 2px solid hotpink;
@@ -91,8 +92,135 @@ $padding-size: 1.5rem;
   }
   &.project-container {
     border: 2px solid aqua;
+    height: 100vh;
+    display: grid;
+    grid-template:
+      "skill-title" 0.5fr
+      "buttons" 0.25fr
+      "skills" auto
+      "projects" 4.5fr;
+    padding-inline: 0.5em;
+    .buttons {
+      grid-area: buttons;
+      // border: 2px solid rgb(255, 102, 0);
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      border-bottom: 2px solid rgb(0, 0, 0, 0.5);
+      padding-bottom: 1em;
+      button {
+        font-size: clamp(1em, 5vw, 1.5em);
+        background-color: transparent;
+        padding: 0.25em;
+        border: none;
+        border-radius: 0.25em;
+        cursor: pointer;
+        &:hover,
+        &.active {
+          background-color: rgb(255, 255, 255, 0.5);
+          box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
+        }
+        &.active {
+          font-weight: 500;
+        }
+        transition: 0.1s;
+      }
+    }
+    .skills {
+      grid-area: skill-title;
+      // border: 2px solid rgb(158, 63, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(1em, 5vw, 2em);
+      font-weight: bold;
+      letter-spacing: 0.1em;
+    }
+    .tools {
+      grid-area: skills;
+      // border: 2px solid rgb(82, 33, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(1em, 5vw, 1.5em);
+      letter-spacing: 0.1em;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 2px solid rgb(0, 0, 0, 0.5);
+      // hide
+      transform: scale(0);
+      &.active {
+        transform: scale(1);
+        transition: $transition-time;
+      }
+    }
+    .projects {
+      grid-area: projects;
+      // border: 2px solid rgb(0, 0, 0);
+      display: grid;
+      align-items: center;
+      // PC version
+      grid-template-rows: repeat(2, 49%);
+      grid-auto-flow: column;
+      grid-auto-columns: 40em;
+      padding: $padding-size;
+      gap: $padding-size;
+      overflow: auto;
+      // hide
+      transform: scale(0);
+      &.active {
+        transform: scale(1);
+        transition: $transition-time;
+      }
+      .project {
+        background-color: rgb(255, 255, 255, 0.5);
+        padding: $padding-size;
+        border-radius: 0.5em;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5em;
+        .abstract {
+          display: -webkit-box;
+          -webkit-line-clamp: 5; // PC
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .title {
+          font-weight: bold;
+        }
+        button {
+          background-color: transparent;
+          padding: 0.5em;
+          border: none;
+          border-radius: 0.25em;
+          cursor: pointer;
+          background-color: rgb(255, 255, 255, 0.5);
+          width: 100%;
+          font-weight: bold;
+        }
+      }
+    }
   }
   &.awards {
     border: 2px solid rgb(255, 102, 0);
+  }
+}
+@media (max-width: 1000px) {
+  .card {
+    &.project-container {
+      .projects {
+        // mobile version
+        grid-template-columns: 100%;
+        grid-template-rows: none; // override
+        grid-auto-flow: row; // override
+        grid-auto-rows: 20em;
+        .project {
+          .abstract {
+            -webkit-line-clamp: 9; // override
+          }
+        }
+      }
+    }
   }
 }
