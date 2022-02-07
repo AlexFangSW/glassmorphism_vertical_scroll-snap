@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-image: url("mockup-podium-product-presentation-podium-with-cube-blue-background-3d-rendering.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  // // Scroll Snap
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  display: grid;
+  grid-template: ". main ." auto / 1fr 3fr 1fr;
+}
+.glass-background {
+  grid-area: main;
+  min-width: 18rem;
+  // Glass effect
+  background: rgba(255, 255, 255, 0.2); // 透明
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px); // 毛玻璃
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+$gap-size: 0.5rem;
+$padding-size: 1.5rem;
+
+.card {
+  width: 100%;
+  min-height: 100vh;
+  // Where to snap to
+  scroll-snap-align: start;
+  font-size: 0.8rem;
+
+  &.introduction {
+    border: 2px solid hotpink;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    padding: $padding-size;
+    row-gap: $gap-size;
+
+    .picture {
+      // border: 2px solid rgb(123, 255, 0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: fit-content;
+      width: 10em;
+      height: 10em;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        width: 20em;
+        margin-top: 1em;
+      }
+    }
+    .name {
+      // border: 2px solid rgb(82, 170, 0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: fit-content;
+      font-size: 2em;
+    }
+    .info {
+      // border: 2px solid rgb(28, 58, 0);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: fit-content;
+      row-gap: $gap-size;
+      .info2 {
+        font-size: 1.5em;
+        text-align: center;
+      }
+    }
+  }
+  &.project-container {
+    border: 2px solid aqua;
+  }
+  &.awards {
+    border: 2px solid rgb(255, 102, 0);
+  }
+}
