@@ -6,14 +6,63 @@
   font-family: "Poppins", sans-serif;
 }
 
+.layer-1,
+.layer-1 * {
+  color: white;
+}
+
+.call-of-action {
+  color: #8d0047;
+}
+
+.title.head {
+  color: #ffed86;
+}
+
+.title:not(.head) {
+  font-size: 1.5em;
+}
+
 body {
-  background-image: url("mockup-podium-product-presentation-podium-with-cube-blue-background-3d-rendering.jpg");
+  background-color: #01141d;
+}
+
+.background {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./assets/Blobs_TL.png"), url("./assets/Blobs_ML.png"), url("./assets/Blobs_BL.png"), url("./assets/Blobs_TR.png"), url("./assets/Blobs_BR.png");
+  background-position: top left, center left, bottom left, top right, bottom right;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  background-size: 10rem, 5rem, 8rem, 10rem, 10rem;
   background-attachment: fixed;
 }
 
+.floating-arrow {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  bottom: 0.2em;
+  left: 50%;
+  transform: translateX(-50%);
+  height: fit-content;
+  width: fit-content;
+  animation: float 0.8s ease-in-out infinite alternate-reverse;
+  transition: opacity 0.2s;
+}
+.floating-arrow svg {
+  width: 3em;
+  height: 3em;
+}
+
+@keyframes float {
+  100% {
+    transform: translate(-50%, -25%);
+  }
+}
 .container {
   position: absolute;
   width: 100vw;
@@ -39,7 +88,6 @@ body {
   font-size: 0.8rem;
 }
 .card.introduction {
-  border: 2px solid hotpink;
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -81,7 +129,6 @@ body {
   text-align: center;
 }
 .card.project-container {
-  border: 2px solid aqua;
   height: 100vh;
   display: grid;
   grid-template: "skill-title" 0.5fr "buttons" 0.25fr "skills" auto "projects" 4.5fr;
@@ -107,12 +154,12 @@ body {
 .card.project-container .buttons button:hover, .card.project-container .buttons button.active {
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
-}
-.card.project-container .buttons button.active {
-  font-weight: 500;
+  color: black;
+  font-weight: bold;
 }
 .card.project-container .skills {
   grid-area: skill-title;
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,11 +201,10 @@ body {
   transition: 0.25s;
 }
 .card.awards {
-  border: 2px solid #ff6600;
   height: 100vh;
-  padding-bottom: 1em;
+  padding: 1em;
   display: grid;
-  grid-template: ". title ." 1fr ". awards ." 3fr/0.5fr 3fr 0.5fr;
+  grid-template: "title title title" 1fr ". awards ." 3fr/0.5fr 3fr 0.5fr;
 }
 .card.awards .title {
   grid-area: title;
@@ -169,6 +215,7 @@ body {
 .card.awards .title.head {
   font-size: clamp(2.5em, 5vw, 3em);
   font-weight: bold;
+  border-top: 2px solid rgba(0, 0, 0, 0.5);
 }
 .card.awards .awards {
   grid-area: awards;
@@ -179,6 +226,7 @@ body {
   gap: 1em;
   overflow-y: scroll;
   overscroll-behavior: none;
+  padding: 0.5em;
 }
 
 .project {
@@ -212,6 +260,10 @@ body {
 }
 
 @media (max-width: 1000px) {
+  .background {
+    opacity: 0.5;
+  }
+
   .card.project-container .projects {
     grid-template-columns: 100%;
     grid-template-rows: none;

@@ -21,3 +21,15 @@ button[1].addEventListener("click", () => {
   ai_nlp[0].classList.add("active");
   ai_nlp[1].classList.add("active");
 });
+// Detect if scrolled to bottom.
+let container = document.querySelector(".container");
+container.addEventListener("scroll", () => {
+  //當影藏的 + 看的到的 == 全長。 代表到底了
+  let distence =
+    container.scrollTop + container.clientHeight - container.scrollHeight;
+  if (distence <= 10 && distence >= -10) {
+    document.querySelector(".floating-arrow").style.opacity = "0";
+  } else {
+    document.querySelector(".floating-arrow").style.opacity = "1";
+  }
+});
