@@ -12,11 +12,11 @@
 }
 
 .call-of-action {
-  color: #8d0047;
+  color: #ff0080;
 }
 
 .title.head {
-  color: #ffed86;
+  color: #fff1a3;
 }
 
 .title:not(.head) {
@@ -259,11 +259,12 @@ body {
   font-weight: bold;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 770px) {
   .background {
     opacity: 0.5;
   }
-
+}
+@media (max-width: 1000px) {
   .card.project-container .projects {
     grid-template-columns: 100%;
     grid-template-rows: none;

@@ -11,10 +11,10 @@
   color: rgb(255, 255, 255);
 }
 .call-of-action {
-  color: rgb(141, 0, 71);
+  color: rgb(255, 0, 128);
 }
 .title.head {
-  color: rgb(255, 237, 134);
+  color: rgb(255, 241, 163);
 }
 .title:not(.head) {
   font-size: 1.5em;
@@ -274,10 +274,12 @@ $transition-time: 0.25s;
     font-weight: bold;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 770px) {
   .background {
     opacity: 0.5;
   }
+}
+@media (max-width: 1000px) {
   .card {
     &.project-container {
       .projects {
