@@ -41,7 +41,7 @@ $transition-time: 0.25s;
   width: 100%;
   min-height: 100vh;
   // Where to snap to
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   font-size: $font-size;
 
   &.introduction {
