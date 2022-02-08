@@ -109,7 +109,7 @@ $transition-time: 0.25s;
       border-bottom: 2px solid rgb(0, 0, 0, 0.5);
       padding-bottom: 1em;
       button {
-        font-size: clamp(1em, 5vw, 1.5em);
+        font-size: clamp(1.2em, 5vw, 1.5em);
         background-color: transparent;
         padding: 0.25em;
         border: none;
@@ -132,7 +132,7 @@ $transition-time: 0.25s;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: clamp(1em, 5vw, 2em);
+      font-size: clamp(1.8em, 5vw, 2em);
       font-weight: bold;
       letter-spacing: 0.1em;
     }
@@ -142,7 +142,7 @@ $transition-time: 0.25s;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: clamp(1em, 5vw, 1.5em);
+      font-size: clamp(1.2em, 4.5vw, 1.5em);
       letter-spacing: 0.1em;
       display: flex;
       flex-direction: column;
@@ -172,38 +172,64 @@ $transition-time: 0.25s;
         transform: scale(1);
         transition: $transition-time;
       }
-      .project {
-        background-color: rgb(255, 255, 255, 0.5);
-        padding: $padding-size;
-        border-radius: 0.5em;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        row-gap: 0.5em;
-        .abstract {
-          display: -webkit-box;
-          -webkit-line-clamp: 5; // PC
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        .title {
-          font-weight: bold;
-        }
-        button {
-          background-color: transparent;
-          padding: 0.5em;
-          border: none;
-          border-radius: 0.25em;
-          cursor: pointer;
-          background-color: rgb(255, 255, 255, 0.5);
-          width: 100%;
-          font-weight: bold;
-        }
-      }
     }
   }
   &.awards {
     border: 2px solid rgb(255, 102, 0);
+    height: 100vh;
+    padding-bottom: 1em;
+    display: grid;
+    grid-template:
+      ". title ." 1fr
+      ". awards ." 3fr / 0.5fr 3fr 0.5fr;
+    .title {
+      grid-area: title;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.head {
+        font-size: clamp(2.5em, 5vw, 3em);
+        font-weight: bold;
+      }
+    }
+    .awards {
+      grid-area: awards;
+      display: grid;
+      grid-auto-flow: row;
+      grid-auto-rows: 13em;
+      height: 100%;
+      gap: 1em;
+      overflow-y: scroll;
+    }
+  }
+}
+.project {
+  background-color: rgb(255, 255, 255, 0.5);
+  padding: $padding-size;
+  border-radius: 0.5em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+  .abstract {
+    display: -webkit-box;
+    -webkit-line-clamp: 5; // PC
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 100%;
+  }
+  .title {
+    font-weight: bold;
+  }
+  button {
+    background-color: transparent;
+    padding: 0.5em;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255, 0.5);
+    width: 100%;
+    font-weight: bold;
   }
 }
 @media (max-width: 1000px) {

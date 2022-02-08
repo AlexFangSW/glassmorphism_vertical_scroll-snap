@@ -98,7 +98,7 @@ body {
   padding-bottom: 1em;
 }
 .card.project-container .buttons button {
-  font-size: clamp(1em, 5vw, 1.5em);
+  font-size: clamp(1.2em, 5vw, 1.5em);
   background-color: transparent;
   padding: 0.25em;
   border: none;
@@ -118,7 +118,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(1em, 5vw, 2em);
+  font-size: clamp(1.8em, 5vw, 2em);
   font-weight: bold;
   letter-spacing: 0.1em;
 }
@@ -127,7 +127,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(1em, 5vw, 1.5em);
+  font-size: clamp(1.2em, 4.5vw, 1.5em);
   letter-spacing: 0.1em;
   display: flex;
   flex-direction: column;
@@ -154,7 +154,34 @@ body {
   transform: scale(1);
   transition: 0.25s;
 }
-.card.project-container .projects .project {
+.card.awards {
+  border: 2px solid #ff6600;
+  height: 100vh;
+  padding-bottom: 1em;
+  display: grid;
+  grid-template: ". title ." 1fr ". awards ." 3fr/0.5fr 3fr 0.5fr;
+}
+.card.awards .title {
+  grid-area: title;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card.awards .title.head {
+  font-size: clamp(2.5em, 5vw, 3em);
+  font-weight: bold;
+}
+.card.awards .awards {
+  grid-area: awards;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: 13em;
+  height: 100%;
+  gap: 1em;
+  overflow-y: scroll;
+}
+
+.project {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 0.5rem;
   border-radius: 0.5em;
@@ -163,16 +190,17 @@ body {
   flex-direction: column;
   row-gap: 0.5em;
 }
-.card.project-container .projects .project .abstract {
+.project .abstract {
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  height: 100%;
 }
-.card.project-container .projects .project .title {
+.project .title {
   font-weight: bold;
 }
-.card.project-container .projects .project button {
+.project button {
   background-color: transparent;
   padding: 0.5em;
   border: none;
@@ -181,9 +209,6 @@ body {
   background-color: rgba(255, 255, 255, 0.5);
   width: 100%;
   font-weight: bold;
-}
-.card.awards {
-  border: 2px solid #ff6600;
 }
 
 @media (max-width: 1000px) {
