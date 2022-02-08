@@ -17,7 +17,7 @@ body {
   width: 100vw;
   height: 100vh;
   // // Scroll Snap
-  scroll-snap-type: y proximity;
+  // scroll-snap-type: y proximity;
   overflow-y: scroll;
   display: grid;
   grid-template: ". main ." auto / 1fr 3fr 1fr;
@@ -166,6 +166,7 @@ $transition-time: 0.25s;
       padding: $padding-size;
       gap: $padding-size;
       overflow: auto;
+      overscroll-behavior: none;
       // hide
       transform: scale(0);
       &.active {
@@ -200,6 +201,7 @@ $transition-time: 0.25s;
       height: 100%;
       gap: 1em;
       overflow-y: scroll;
+      overscroll-behavior: none;
     }
   }
 }

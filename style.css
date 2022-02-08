@@ -18,7 +18,6 @@ body {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  scroll-snap-type: y proximity;
   overflow-y: scroll;
   display: grid;
   grid-template: ". main ." auto/1fr 3fr 1fr;
@@ -147,6 +146,7 @@ body {
   padding: 0.5rem;
   gap: 0.5rem;
   overflow: auto;
+  overscroll-behavior: none;
   transform: scale(0);
 }
 .card.project-container .projects.active {
@@ -178,6 +178,7 @@ body {
   height: 100%;
   gap: 1em;
   overflow-y: scroll;
+  overscroll-behavior: none;
 }
 
 .project {
