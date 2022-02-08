@@ -82,7 +82,7 @@ body {
 }
 
 $gap-size: 0.5rem;
-$padding-size: 0.5rem;
+$padding-size: 1rem;
 $font-size: 0.8rem;
 $transition-time: 0.25s;
 .card {
@@ -142,7 +142,7 @@ $transition-time: 0.25s;
       "buttons" 0.25fr
       "skills" auto
       "projects" 4.5fr;
-    padding-inline: 0.5em;
+    padding: $padding-size;
     .buttons {
       grid-area: buttons;
       display: flex;
@@ -216,11 +216,11 @@ $transition-time: 0.25s;
   }
   &.awards {
     height: 100vh;
-    padding: 1em;
+    padding: $padding-size;
     display: grid;
     grid-template:
       "title title title" 1fr
-      ". awards ." 3fr / 0.5fr 3fr 0.5fr;
+      "awards awards awards" 3fr / 1fr;
     .title {
       grid-area: title;
       display: flex;
