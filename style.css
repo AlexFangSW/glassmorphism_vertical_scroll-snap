@@ -92,7 +92,7 @@ body {
   justify-content: center;
   justify-items: center;
   align-content: center;
-  padding: 1rem;
+  padding: 2rem;
   row-gap: 0.5rem;
 }
 .card.introduction .picture {

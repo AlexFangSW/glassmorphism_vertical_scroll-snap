@@ -97,7 +97,7 @@ $transition-time: 0.25s;
     justify-content: center;
     justify-items: center;
     align-content: center;
-    padding: $padding-size;
+    padding: $padding-size * 2;
     row-gap: $gap-size;
 
     .picture {
