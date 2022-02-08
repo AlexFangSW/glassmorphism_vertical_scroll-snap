@@ -226,7 +226,7 @@ body {
   gap: 1em;
   overflow-y: scroll;
   overscroll-behavior: none;
-  padding: 0.5em;
+  padding: 1rem;
 }
 
 .project {
